@@ -16,7 +16,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Expert extends BaseEntity<Integer> {
 
@@ -27,7 +26,7 @@ public class Expert extends BaseEntity<Integer> {
     String password;
     LocalDate dateOfSigningIn;
 
-    File file;
+    byte[] personalPhoto;
     Integer stars;
     @OneToMany(mappedBy = "expert")
     List<SubService> subServiceList;
@@ -40,4 +39,33 @@ public class Expert extends BaseEntity<Integer> {
 
     @OneToOne
     Comments comments;
+
+    @ManyToOne
+    Admin admin;
+
+    public Expert(String firstName, String lastName, String email, String userName, String password,
+                  LocalDate dateOfSigningIn, byte[] personalPhoto, Integer stars, ExpertStatus expertStatus) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.dateOfSigningIn = dateOfSigningIn;
+        this.personalPhoto = personalPhoto;
+        this.stars = stars;
+        this.expertStatus = expertStatus;
+    }
+
+    public Expert(String firstName, String lastName, String email,
+                  String userName, String password, LocalDate dateOfSigningIn, byte[] personalPhoto) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.dateOfSigningIn = dateOfSigningIn;
+        this.personalPhoto = personalPhoto;
+    }
 }

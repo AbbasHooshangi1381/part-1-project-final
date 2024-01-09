@@ -1,7 +1,6 @@
 package repository.impl;
 
 import base.repository.impl.BaseEntityRepositoryImpl;
-import domain.userEntity.Customer;
 import domain.userEntity.Expert;
 import repository.ExpertRepository;
 
@@ -18,5 +17,12 @@ public class ExpertRepositoryImpl extends BaseEntityRepositoryImpl<Integer,Exper
     @Override
     public Class<Expert> getEntityClass() {
         return Expert.class;
+    }
+
+    @Override
+    public List<Expert> showEmail() {
+
+        return entityManager.createQuery("SELECT e.email FROM Expert e")
+                .getResultList();
     }
 }

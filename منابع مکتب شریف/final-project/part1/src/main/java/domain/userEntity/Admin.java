@@ -5,7 +5,10 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -20,4 +23,10 @@ public class Admin extends BaseEntity<Integer> {
     String userName;
     String password;
     LocalDate dateOfSigningIn;
+
+    @OneToMany(mappedBy = "admin")
+    List<Customer> customerList;
+
+    @OneToMany(mappedBy = "admin")
+    List<Expert> expertList;
 }

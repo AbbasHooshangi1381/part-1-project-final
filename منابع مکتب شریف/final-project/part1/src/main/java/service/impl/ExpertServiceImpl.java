@@ -5,9 +5,16 @@ import domain.userEntity.Expert;
 import repository.ExpertRepository;
 import service.ExpertService;
 
+import java.util.List;
+
 public class ExpertServiceImpl extends BaseEntityServiceImpl<Integer, Expert, ExpertRepository>
         implements ExpertService {
     public ExpertServiceImpl(ExpertRepository baseRepository) {
         super(baseRepository);
+    }
+
+    @Override
+    public List<Expert> showEmail() {
+        return baseRepository.showEmail();
     }
 }

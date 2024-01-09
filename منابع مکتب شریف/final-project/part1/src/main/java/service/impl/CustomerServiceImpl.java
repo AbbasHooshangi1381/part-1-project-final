@@ -5,9 +5,16 @@ import domain.userEntity.Customer;
 import repository.CustomerRepository;
 import service.CustomerService;
 
+import java.util.List;
+
 public class CustomerServiceImpl extends BaseEntityServiceImpl<Integer, Customer, CustomerRepository>
         implements CustomerService {
     public CustomerServiceImpl(CustomerRepository baseRepository) {
         super(baseRepository);
+    }
+
+    @Override
+    public List<Customer> showGmails() {
+        return baseRepository.showGmails();
     }
 }
