@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CustomerService extends BaseEntityService<Integer, Customer> {
 
-    List<Customer> showGmails();
+    public List<String> showEmail();
 }

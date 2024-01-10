@@ -4,6 +4,7 @@ import domain.serviceEntity.Service;
 import domain.serviceEntity.SubService;
 import util.ApplicationContext;
 
+import java.util.List;
 import java.util.Optional;
 
 import static menu.BaseMenu.scanner;
@@ -15,6 +16,7 @@ public class AdminMenu {
         System.out.println("2. see all service that we have !");
         System.out.println("3. edit description of subService :");
         System.out.println("4. edit price of subService :");
+        System.out.println("5. register expert as one service ");
 
 
         try {
@@ -27,7 +29,9 @@ public class AdminMenu {
 
                 case 3 ->changeDescription();
 
-                case 4->
+                case 4->changePrice();
+
+            //    case 5-> ;
 
                 default -> System.out.println("---Error404---");
             }
@@ -84,8 +88,17 @@ public class AdminMenu {
             System.out.println("you dont have this service");
         } else {
 
+            String subServiceName = "bargh";
 
-            subService.setSubServiceName("bargh");
+            List<SubService> subServiceList = (List<SubService>) ApplicationContext.getSubServiceService().findAll();
+
+            for (SubService subServiceLists:subServiceList) {
+                if (subServiceLists.getSubServiceName().equals(subServiceName)){
+                    System.out.println("the sub service is already exists !!");
+                    return;
+                }
+            }
+            subService.setSubServiceName(subServiceName);
             subService.setDescription("frfffffffffffff");
             subService.setPrice(5256.00);
             subService.setService(service);

@@ -5,6 +5,7 @@ import domain.userEntity.Customer;
 import repository.CustomerRepository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class CustomerRepositoryImpl extends BaseEntityRepositoryImpl<Integer, Customer> implements CustomerRepository {
@@ -19,8 +20,8 @@ public class CustomerRepositoryImpl extends BaseEntityRepositoryImpl<Integer, Cu
     }
 
     @Override
-    public List<Customer> showGmails() {
-        return entityManager.createQuery("SELECT c.email FROM Customer c ")
-               .getResultList();
+    public List<String> showEmail() {
+        TypedQuery<String> query = entityManager.createQuery("SELECT c.email FROM Customer c", String.class);
+        return query.getResultList();
     }
 }

@@ -11,6 +11,8 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import static menu.AdminMenu.firstMenuOfAdmin;
+import static menu.CustomerMenu.signInOrSignUpCustomer;
+import static menu.ExpertMenu.signInOrSignUpExpert;
 
 public class BaseMenu {
     public static Optional<Customer> customerOptional;
@@ -34,8 +36,8 @@ public class BaseMenu {
             scanner.nextLine();
             switch (select) {
                 case 1 -> signInAdmin();
-                case 2 -> signInCustomer();
-                case 3 -> signInExpert();
+                case 2 -> signInOrSignUpCustomer();
+                case 3 -> signInOrSignUpExpert();
                 case 4 -> {
                     System.out.println("exit");
                     break;
@@ -77,58 +79,6 @@ public class BaseMenu {
         }
     }
 
-
-
-    public static void signInCustomer() throws SQLException {
-        boolean isTrue = true;
-        while (isTrue) {
-            System.out.println("enter username :");
-            String username = scanner.next();
-
-            System.out.println("enter password :");
-            String password = scanner.next();
-
-            customerOptional = ApplicationContext.getCustomerService().login(username, password);
-
-
-            if (customerOptional.isPresent()) {
-                registerOrRefund();
-                isTrue = false;
-            } else {
-                System.out.println("username and password UnCorrect !!!!\n");
-                System.out.println("Please Again ... ");
-                firstMenu();
-
-            }
-
-        }
-    }
-
-
-    public static void signInExpert() throws SQLException {
-        boolean isTrue = true;
-        while (isTrue) {
-            System.out.println("enter username :");
-            String username = scanner.next();
-
-            System.out.println("enter password :");
-            String password = scanner.next();
-
-            expertOptional = ApplicationContext.getExpertService().login(username, password);
-
-
-            if (expertOptional.isPresent()) {
-                registerOrRefund();
-                isTrue = false;
-            } else {
-                System.out.println("username and password UnCorrect !!!!\n");
-                System.out.println("Please Again ... ");
-                firstMenu();
-
-            }
-
-        }
-    }
 
 
 

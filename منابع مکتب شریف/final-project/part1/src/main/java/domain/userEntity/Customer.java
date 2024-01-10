@@ -41,7 +41,7 @@ public class Customer extends BaseEntity<Integer> {
     Admin admin;
 
     public Customer(String firstName, String lastName, String email, String userName, String password,
-                    LocalDate dateOfSigningIn, List<CustomerOrder> customerOrderList, Wallet wallet, Comments comments) {
+                    LocalDate dateOfSigningIn) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

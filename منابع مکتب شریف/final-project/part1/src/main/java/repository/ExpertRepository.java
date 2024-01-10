@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface ExpertRepository extends BaseEntityRepository<Integer, Expert> {
 
-    List<Expert> showEmail();
+     List<String> showEmail();
+
+     Boolean addToService(Integer id);
 }

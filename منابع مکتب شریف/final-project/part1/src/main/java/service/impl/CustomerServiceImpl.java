@@ -13,8 +13,9 @@ public class CustomerServiceImpl extends BaseEntityServiceImpl<Integer, Customer
         super(baseRepository);
     }
 
+
     @Override
-    public List<Customer> showGmails() {
-        return baseRepository.showGmails();
+    public List<String> showEmail() {
+        return baseRepository.showEmail();
     }
 }

@@ -1,6 +1,7 @@
 import domain.userEntity.Customer;
 import domain.userEntity.Expert;
 import util.ApplicationContext;
+import util.EntityManagerFactoryProvider;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -10,21 +11,17 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-
-import static validation.RegexValidation.validationFirstname;
 import static validation.Validation.generateRandomPassword;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        // EntityManagerFactoryProvider.getEntityManagerFactory().createEntityManager();
+         EntityManagerFactoryProvider.getEntityManagerFactory().createEntityManager();
         //  new Menu().firstMenu();
 
 
         // EXPERT//
 
-        Expert expert = new Expert();
-
-        String FirstName = "abbas";
+/*        String FirstName = "abbas";
         String validatedFirstName = String.valueOf(validationFirstname(FirstName));
 
         String LastName = "aaaa";
@@ -43,8 +40,9 @@ public class Main {
 
         String password = generateRandomPassword();
 
-        LocalDate timeOfSignIn = LocalDate.now();
+        LocalDate timeOfSignIn = LocalDate.now();*/
 
+/*
         String imagePath = " D:\\عکس\\مکتب\\IMG_9979.JPG";
         try {
             BufferedImage image = ImageIO.read(new File(imagePath));
@@ -54,13 +52,16 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+*/
+
+
 
 
 
 
         //Customer//
 
-        String FirstNameOfCustomer="abbas";
+      /*  String FirstNameOfCustomer="abbas";
         String validatedFirstNameOfCustomer= String.valueOf(validationFirstname(FirstNameOfCustomer));
 
         String LastNameOfCustomer="aaaa";
@@ -80,7 +81,7 @@ public class Main {
         String passwordOfCustomer=generateRandomPassword();
 
         LocalDate timeOfSignInOfCustomer=LocalDate.now();
-
+*/
 
 
         //workOfPrinciple
@@ -88,12 +89,12 @@ public class Main {
 
     }
 
-    public static void saveImageToFile(byte[] imageBytes, String filePath) {
+   /* public static void saveImageToFile(byte[] imageBytes, String filePath) {
         try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
             fileOutputStream.write(imageBytes);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }

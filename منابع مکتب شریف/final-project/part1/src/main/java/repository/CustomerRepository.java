@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface CustomerRepository extends BaseEntityRepository<Integer, Customer> {
 
-    List<Customer> showGmails();
+     List<String> showEmail();
 
 }

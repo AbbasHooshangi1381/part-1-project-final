@@ -13,8 +13,9 @@ public class ExpertServiceImpl extends BaseEntityServiceImpl<Integer, Expert, Ex
         super(baseRepository);
     }
 
+
     @Override
-    public List<Expert> showEmail() {
+    public List<String> showEmail() {
         return baseRepository.showEmail();
     }
 }
