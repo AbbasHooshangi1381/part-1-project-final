@@ -10,4 +10,14 @@ public class SubServiceServiceImpl extends BaseEntityServiceImpl<Integer, SubSer
     public SubServiceServiceImpl(SubServiceRepository baseRepository) {
         super(baseRepository);
     }
+
+    @Override
+    public Boolean updateDescriptionField(Integer subServiceId, String newDescription) {
+        return baseRepository.updateDescriptionField(subServiceId,newDescription);
+    }
+
+    @Override
+    public Boolean updatePriceField(Integer subServiceId, Double price) {
+        return baseRepository.updatePriceField(subServiceId, price);
+    }
 }

@@ -34,5 +34,10 @@ public class SubService extends BaseEntity<Integer> {
     @OneToMany(mappedBy = "subService")
     List<CustomerOrder> customerOrderList;
 
-
+    public SubService( String subServiceName, Double price, String description, Service service) {
+        SubServiceName = subServiceName;
+        this.price = price;
+        this.description = description;
+        this.service = service;
+    }
 }

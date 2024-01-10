@@ -1,4 +1,4 @@
-/*
+
 package menu;
 
 import domain.userEntity.Admin;
@@ -9,6 +9,8 @@ import util.ApplicationContext;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Scanner;
+
+import static menu.AdminMenu.firstMenuOfAdmin;
 
 public class BaseMenu {
     public static Optional<Customer> customerOptional;
@@ -63,7 +65,7 @@ public class BaseMenu {
 
 
             if (adminOptional.isPresent()) {
-                registerOrRefund();
+                firstMenuOfAdmin();
                 isTrue = false;
             } else {
                 System.out.println("username and password UnCorrect !!!!\n");
@@ -140,4 +142,4 @@ public class BaseMenu {
 
 
 }
-*/
+

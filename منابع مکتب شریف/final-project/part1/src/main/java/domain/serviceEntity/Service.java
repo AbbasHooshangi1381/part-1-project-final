@@ -21,6 +21,7 @@ public class Service extends BaseEntity<Integer> {
     @OneToMany(mappedBy ="service" )
     List<SubService>subServiceList;
 
-
-
+    public Service( String name) {
+        this.name = name;
+    }
 }
